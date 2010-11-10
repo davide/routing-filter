@@ -105,10 +105,8 @@ module RoutingFilter
       locale = nil unless valid_locale?(locale)                   # reset to no locale when locale is not valid
 
       yield.tap do |result|
-        if prepend_locale?(locale)
-          translate_path(result, locale)
-          prepend_segment!(result, locale) 
-        end
+        translate_path(result, locale)
+        prepend_segment!(result, locale) if prepend_locale?(locale)
       end
     end
 
