@@ -8,6 +8,7 @@ module RoutingFilter
   autoload :Locale,     'routing_filter/filters/locale'
   autoload :Pagination, 'routing_filter/filters/pagination'
   autoload :Uuid,       'routing_filter/filters/uuid'
+  autoload :RoutesLocalization,       'routing_filter/filters/routes_localization'
 
   class << self
     def build(name, options)
