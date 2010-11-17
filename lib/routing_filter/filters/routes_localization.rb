@@ -126,6 +126,8 @@ module RoutingFilter
 
       def translate_path(path, locale)
         return if !locale
+        # workaround for https://rails.lighthouseapp.com/projects/8994/tickets/5329-using-i18nwith_locale-in-actionmailer-raises-systemstackerror
+        locale = nil if locale == I18n.locale
         I18n.with_locale(locale) do
           i18n_tt = I18n.t("url", :default => "")
           return if i18n_tt == ""
